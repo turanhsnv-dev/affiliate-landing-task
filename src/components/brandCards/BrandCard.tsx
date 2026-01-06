@@ -34,16 +34,20 @@ export default function BrandCard({
         {/* Header Section */}
         <div className="flex items-start justify-between mb-5 pb-5 border-b border-gray-100">
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
+            
+            {/* DÜZƏLİŞ: Telefonda alt-alta (flex-col), Desktopda yan-yana (md:flex-row) */}
+            <div className="flex flex-col items-start md:flex-row md:items-center gap-2 mb-2">
               <h3 className="text-xl font-bold text-gray-900 leading-tight">
                 {brandName}
               </h3>
               {badge && (
-                <span className="bg-blue-600 text-white text-[9px] font-semibold uppercase tracking-wide py-0.5 px-2 rounded z-10">
+                // DÜZƏLİŞ: 'w-fit' əlavə olundu ki, telefonda bütün sətri tutmasın
+                <span className="bg-blue-600 text-white text-[9px] font-semibold uppercase tracking-wide py-0.5 px-2 rounded z-10 w-fit">
                   {badge}
                 </span>
               )}
             </div>
+
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
                 <span className="text-lg font-semibold text-gray-900">{rating}</span>
@@ -123,4 +127,3 @@ export default function BrandCard({
     </div>
   );
 }
-
