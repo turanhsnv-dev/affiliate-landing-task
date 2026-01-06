@@ -2,9 +2,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-white border-b border-gray-200 py-4 sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-200 py-4">
       <div className="max-w-[1200px] mx-auto px-8 flex justify-between items-center">
-        {/* LOGO */}
         <div className="flex items-center gap-2 cursor-pointer">
           <div className="w-8 h-8 text-blue-600">
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
