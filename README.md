@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Home Warranty Affiliate Landing Page
+
+A professional affiliate landing page for home warranty services, built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4.
+
+## Features
+
+- ✅ **Responsive Design** - Mobile-first approach with Tailwind CSS
+- ✅ **Header, Hero & Footer** - Professional layout matching industry standards
+- ✅ **Brand Cards** - Interactive cards with ratings, pricing, and features
+- ✅ **GCLID Injection** - Automatic Google Click ID tracking parameter injection
+- ✅ **TypeScript** - Full type safety throughout the application
+- ✅ **Modern Stack** - Next.js 16 with App Router, React 19
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## GCLID Injection Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The page implements GCLID (Google Click ID) injection functionality. To test:
+
+1. Navigate to: `http://localhost:3000/?gclid=TEST_VALUE`
+2. Check any "Visit Site" button - the gclid value will be appended to the affiliate URL
+3. Example: `https://brand-offer.com/click123` becomes `https://brand-offer.com/click123TEST_VALUE`
+
+For detailed testing instructions, see [GCLID_TESTING.md](./GCLID_TESTING.md).
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx      # Root layout with metadata
+│   ├── page.tsx         # Main landing page
+│   └── globals.css      # Global styles
+├── components/
+│   ├── Header.tsx       # Site header with navigation
+│   ├── Hero.tsx         # Hero section
+│   ├── BrandCard.tsx    # Individual brand card component
+│   ├── BrandCards.tsx   # Brand cards container
+│   └── Footer.tsx       # Site footer
+└── utils/
+    └── gclid.ts         # GCLID injection utility functions
+```
+
+## Technical Details
+
+### GCLID Injection Logic
+
+The GCLID injection works as follows:
+- Extracts `gclid` parameter value from the current page URL
+- Appends the value directly to all Brand Card affiliate links
+- **No separators** are used (no `?`, `&`, or `=`)
+- Implementation: `src/utils/gclid.ts` and `src/components/BrandCard.tsx`
+
+### Technologies Used
+
+- **Next.js 16.1.1** - React framework with App Router
+- **React 19.2.3** - UI library
+- **TypeScript 5** - Type safety
+- **Tailwind CSS 4** - Utility-first CSS framework
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Documentation](https://react.dev)
