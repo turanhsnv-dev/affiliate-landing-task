@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
+import { useSearchParams } from 'next/navigation'; 
 import { appendGclidToUrl } from '@/utils/gclid';
 
 interface BrandCardProps {
@@ -23,9 +24,11 @@ export default function BrandCard({
   badge,
 }: BrandCardProps) {
   
-  const finalUrl = useMemo(() => {
-    return appendGclidToUrl(affiliateUrl);
-  }, [affiliateUrl]);
+  const searchParams = useSearchParams();
+  const gclid = searchParams.get('gclid');
+
+  // Gclid-i birbaşa funksiyaya ötürürük
+  const finalUrl = appendGclidToUrl(affiliateUrl, gclid);
 
   return (
     <div className="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-200 overflow-hidden">
@@ -35,13 +38,11 @@ export default function BrandCard({
         <div className="flex items-start justify-between mb-5 pb-5 border-b border-gray-100">
           <div className="flex-1">
             
-            {/* DÜZƏLİŞ: Telefonda alt-alta (flex-col), Desktopda yan-yana (md:flex-row) */}
             <div className="flex flex-col items-start md:flex-row md:items-center gap-2 mb-2">
               <h3 className="text-xl font-bold text-gray-900 leading-tight">
                 {brandName}
               </h3>
               {badge && (
-                // DÜZƏLİŞ: 'w-fit' əlavə olundu ki, telefonda bütün sətri tutmasın
                 <span className="bg-blue-600 text-white text-[9px] font-semibold uppercase tracking-wide py-0.5 px-2 rounded z-10 w-fit">
                   {badge}
                 </span>
