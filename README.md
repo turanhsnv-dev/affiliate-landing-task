@@ -5,8 +5,10 @@ A professional affiliate landing page for home warranty services, built with Nex
 ## Features
 
 - ✅ **Responsive Design** - Mobile-first approach with Tailwind CSS
-- ✅ **Header, Hero & Footer** - Professional layout matching industry standards
+- ✅ **Header, Hero & Footer** - Professional layout matching reference site structure
+- ✅ **Top Picks** - Quick access to top-rated brands
 - ✅ **Brand Cards** - Interactive cards with ratings, pricing, and features
+- ✅ **Section-based Structure** - Professional component organization
 - ✅ **GCLID Injection** - Automatic Google Click ID tracking parameter injection
 - ✅ **TypeScript** - Full type safety throughout the application
 - ✅ **Modern Stack** - Next.js 16 with App Router, React 19
@@ -42,17 +44,26 @@ For detailed testing instructions, see [GCLID_TESTING.md](./GCLID_TESTING.md).
 ```
 src/
 ├── app/
-│   ├── layout.tsx      # Root layout with metadata
-│   ├── page.tsx         # Main landing page
-│   └── globals.css      # Global styles
+│   ├── layout.tsx         # Root layout with metadata
+│   ├── page.tsx           # Main landing page
+│   └── globals.css        # Global styles
 ├── components/
-│   ├── Header.tsx       # Site header with navigation
-│   ├── Hero.tsx         # Hero section
-│   ├── BrandCard.tsx    # Individual brand card component
-│   ├── BrandCards.tsx   # Brand cards container
-│   └── Footer.tsx       # Site footer
+│   ├── header/
+│   │   └── Header.tsx     # Site header with navigation & mobile sidebar
+│   ├── hero/
+│   │   └── Hero.tsx       # Hero section with background image
+│   ├── topPicks/
+│   │   └── TopPicks.tsx  # Top picks section
+│   ├── brandCards/
+│   │   ├── BrandCards.tsx # Brand cards container
+│   │   └── BrandCard.tsx # Individual brand card component
+│   └── footer/
+│       └── Footer.tsx     # Site footer
+├── data/
+│   ├── brands.ts          # Brands data
+│   └── topPicks.ts        # Top picks data
 └── utils/
-    └── gclid.ts         # GCLID injection utility functions
+    └── gclid.ts           # GCLID injection utility functions
 ```
 
 ## Technical Details
@@ -63,7 +74,7 @@ The GCLID injection works as follows:
 - Extracts `gclid` parameter value from the current page URL
 - Appends the value directly to all Brand Card affiliate links
 - **No separators** are used (no `?`, `&`, or `=`)
-- Implementation: `src/utils/gclid.ts` and `src/components/BrandCard.tsx`
+- Implementation: `src/utils/gclid.ts` and `src/components/brandCards/BrandCard.tsx`
 
 ### Technologies Used
 
