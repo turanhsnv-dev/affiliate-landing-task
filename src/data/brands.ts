@@ -1,9 +1,14 @@
-'use client';
+export interface Brand {
+  brandName: string;
+  rating: number;
+  reviewCount: string;
+  price: string;
+  features: string[];
+  affiliateUrl: string;
+  badge?: string;
+}
 
-import React from 'react';
-import BrandCard from './BrandCard';
-
-const brands = [
+export const brands: Brand[] = [
   {
     brandName: 'American Home Shield',
     rating: 4.5,
@@ -58,20 +63,4 @@ const brands = [
     affiliateUrl: 'https://brand-offer.com/click321',
   },
 ];
-
-export default function BrandCards() {
-  return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-[1200px] mx-auto px-8">
-        
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {brands.map((brand, index) => (
-            <BrandCard key={index} {...brand} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 

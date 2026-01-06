@@ -34,12 +34,12 @@ export default function BrandCard({
         {/* Header Section */}
         <div className="flex items-start justify-between mb-5 pb-5 border-b border-gray-100">
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
+            <div className="mb-2">
               <h3 className="text-xl font-bold text-gray-900 leading-tight">
                 {brandName}
               </h3>
               {badge && (
-                <span className="bg-blue-600 text-white text-[9px] font-semibold uppercase tracking-wide py-0.5 px-2 rounded z-10">
+                <span className="inline-block mt-1.5 md:mt-0 md:ml-2 bg-blue-600 text-white text-[9px] font-semibold uppercase tracking-wide py-0.5 px-2 rounded z-10">
                   {badge}
                 </span>
               )}
@@ -123,3 +123,4 @@ export default function BrandCard({
     </div>
   );
 }
+

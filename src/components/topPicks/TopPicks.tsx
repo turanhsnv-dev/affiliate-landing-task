@@ -1,37 +1,8 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import { appendGclidToUrl } from '@/utils/gclid';
-
-const topPicks = [
-  {
-    rank: 1,
-    title: 'Best Overall',
-    brandName: 'American Home Shield',
-    rating: 9.9,
-    img: '/ahs-logo.png', 
-    link: 'https://brand-offer.com/click123',
-    color: 'bg-blue-600',
-  },
-  {
-    rank: 2,
-    title: 'Best Value',
-    brandName: 'Choice Home Warranty',
-    rating: 9.8,
-    img: '/choice-logo.png',
-    link: 'https://brand-offer.com/click456',
-    color: 'bg-green-600',
-  },
-  {
-    rank: 3,
-    title: 'Most Popular',
-    brandName: 'Select Home Warranty',
-    rating: 9.5,
-    img: '/select-logo.png',
-    link: 'https://brand-offer.com/click789',
-    color: 'bg-orange-500',
-  },
-];
+import { topPicks } from '@/data/topPicks';
 
 export default function TopPicks() {
   return (
@@ -79,3 +50,4 @@ export default function TopPicks() {
     </section>
   );
 }
+

@@ -1,8 +1,8 @@
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import TopPicks from '@/components/TopPicks'; 
-import BrandCards from '@/components/BrandCards';
-import Footer from '@/components/Footer';
+import Header from '@/components/header/Header';
+import Hero from '@/components/hero/Hero';
+import TopPicks from '@/components/topPicks/TopPicks'; 
+import BrandCards from '@/components/brandCards/BrandCards';
+import Footer from '@/components/footer/Footer';
 
 export default function Home() {
   return (
